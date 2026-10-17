@@ -92,7 +92,7 @@ export function Expertise() {
                 tabIndex={0}
                 onKeyDown={(e) => handleCardKeyDown(e, i)}
                 aria-label={`Expertise: ${item.title}`}
-                className="bg-[#0A0A0A] border border-white/10 group relative min-w-[24%] sm:min-w-[24%] md:min-w-[20%] lg:min-w-[16.66%] xl:min-w-[16.66%] cursor-pointer overflow-hidden rounded-3xl p-5 sm:p-6 lg:p-7 focus-visible:outline-2 focus-visible:outline-accent-red transition-all duration-300 hover:border-accent-red/40 hover:shadow-[0_0_30px_rgba(225,5,0,0.15)]"
+                className="bg-[#0A0A0A] border border-white/10 group relative min-w-[85%] sm:min-w-[calc((100%_-_0.75rem)/2)] lg:min-w-[calc((100%_-_1.5rem)/3)] cursor-pointer overflow-hidden rounded-3xl p-5 sm:p-6 lg:p-7 focus-visible:outline-2 focus-visible:outline-accent-red transition-all duration-300 hover:border-accent-red/40 hover:shadow-[0_0_30px_rgba(225,5,0,0.15)]"
               >
                 <span className="font-display text-4xl text-white/15 transition-colors group-hover:text-accent-red/60">
                   {item.index}
