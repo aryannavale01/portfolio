@@ -228,7 +228,7 @@ export const ScrollCanvas = forwardRef<ScrollCanvasHandle, { config: ScrollCanva
         window.removeEventListener("orientationchange", measureAndResize);
         if (ro) ro.disconnect();
       };
-    }, [config.sequence, config.frameRange, config.triggerId, config.desktopFx, config.mobileFx, config.fy, config.scrub]);
+    }, [config.sequence, config.frameRange, config.mobileFrameRange, config.triggerId, config.desktopFx, config.mobileFx, config.fy, config.scrub]);
 
     useImperativeHandle(ref, () => ({
       draw: (p: number) => drawRef.current(p),
