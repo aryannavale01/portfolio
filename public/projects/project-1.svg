@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="60%" stop-color="#0f0707"/>
+      <stop offset="100%" stop-color="#060607"/>
+    </linearGradient>
+    <pattern id="grid-1" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#E10600"/>
+    </marker>
+    <marker id="arrow-dim" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="rgba(255,255,255,0.3)"/>
+    </marker>
+    <filter id="glow-red" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg-grad-1)"/>
+  <rect width="800" height="450" fill="url(#grid-1)"/>
+  <rect x="0.5" y="0.5" width="799" height="449" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Header Bar -->
+  <path d="M 24 38 L 776 38" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <circle cx="36" cy="24" r="4" fill="#E10600"/>
+  <circle cx="50" cy="24" r="4" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="64" cy="24" r="4" fill="rgba(255,255,255,0.2)"/>
+  <text x="86" y="28" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">DCR MITRA // ARCHITECTURE PIPELINE</text>
+  <text x="760" y="28" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#E10600" letter-spacing="1">STATUS: COMPLIANCE ACTIVE</text>
+
+  <!-- Connecting Lines -->
+  <!-- 1 -> 2 -->
+  <path d="M 170 145 L 235 145" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-dim)"/>
+  <!-- 2 -> 3 -->
+  <path d="M 375 145 L 435 145" fill="none" stroke="#E10600" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+  <!-- 3 -> 4 (down-left loop) -->
+  <path d="M 505 195 L 505 285 L 375 285" fill="none" stroke="#E10600" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+  <!-- 4 -> 5 -->
+  <path d="M 235 285 L 175 285" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <path d="M 175 285 L 175 350 L 575 350" fill="none" stroke="#E10600" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <!-- NODE 1: Municipal Bylaw PDF -->
+  <g transform="translate(35, 100)">
+    <rect width="135" height="90" rx="8" fill="rgba(18,18,22,0.85)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+    <rect x="12" y="14" width="22" height="26" rx="2" fill="none" stroke="#E10600" stroke-width="1.5"/>
+    <line x1="16" y1="20" x2="26" y2="20" stroke="#E10600" stroke-width="1"/>
+    <line x1="16" y1="25" x2="28" y2="25" stroke="#E10600" stroke-width="1"/>
+    <line x1="16" y1="30" x2="24" y2="30" stroke="#E10600" stroke-width="1"/>
+    <text x="12" y="58" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600" fill="#F5F5F5">Municipal PDF</text>
+    <text x="12" y="74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="rgba(255,255,255,0.45)">Bylaw Input</text>
+  </g>
+
+  <!-- NODE 2: Ingestion & Chunking -->
+  <g transform="translate(240, 100)">
+    <rect width="135" height="90" rx="8" fill="rgba(18,18,22,0.85)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+    <circle cx="22" cy="24" r="8" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+    <circle cx="22" cy="24" r="3" fill="#E10600"/>
+    <text x="12" y="58" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600" fill="#F5F5F5">Ingestion Engine</text>
+    <text x="12" y="74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="rgba(255,255,255,0.45)">Token Chunking</text>
+  </g>
+
+  <!-- NODE 3: LangChain Agent (Core highlight) -->
+  <g transform="translate(440, 95)" filter="url(#glow-red)">
+    <rect width="150" height="100" rx="10" fill="rgba(30,12,12,0.92)" stroke="#E10600" stroke-width="1.5"/>
+    <rect x="12" y="12" width="54" height="18" rx="4" fill="rgba(225,6,0,0.2)" stroke="#E10600" stroke-width="0.8"/>
+    <text x="18" y="24" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="700" fill="#E10600">CORE AGENT</text>
+    <text x="12" y="58" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">LangChain Agent</text>
+    <text x="12" y="74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="rgba(255,255,255,0.6)">Multi-Agent Router</text>
+    <text x="12" y="87" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" fill="#E10600">FastAPI Orchestrator</text>
+  </g>
+
+  <!-- NODE 4: Bylaw Vector DB -->
+  <g transform="translate(240, 240)">
+    <rect width="135" height="90" rx="8" fill="rgba(18,18,22,0.85)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+    <!-- DB cylinder icon -->
+    <ellipse cx="22" cy="18" rx="10" ry="4" fill="none" stroke="#E10600" stroke-width="1.2"/>
+    <path d="M 12 18 L 12 28 A 10 4 0 0 0 32 28 L 32 18" fill="none" stroke="#E10600" stroke-width="1.2"/>
+    <text x="12" y="58" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600" fill="#F5F5F5">Bylaw Vector DB</text>
+    <text x="12" y="74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="rgba(255,255,255,0.45)">pgvector Index</text>
+  </g>
+
+  <!-- NODE 5: Compliance Scorecard Engine -->
+  <g transform="translate(580, 305)">
+    <rect width="175" height="90" rx="8" fill="rgba(18,18,22,0.85)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <circle cx="22" cy="22" r="8" fill="rgba(52,211,153,0.15)" stroke="#34D399" stroke-width="1.2"/>
+    <path d="M 18 22 L 21 25 L 26 19" fill="none" stroke="#34D399" stroke-width="1.5"/>
+    <text x="12" y="58" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="600" fill="#F5F5F5">Scorecard Engine</text>
+    <text x="12" y="74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="rgba(255,255,255,0.45)">Verification Output</text>
+  </g>
+
+  <!-- Footer Meta -->
+  <text x="35" y="420" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="rgba(255,255,255,0.35)">FASTAPI · POSTGRESQL · LANGCHAIN · PGVECTOR</text>
+</svg>

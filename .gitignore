@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+dist
+*.log
+.env
+.env*.local
+work/
+qa_crops/
+qa/
+.aistudio/
+.playwright-mcp/
+tsconfig.tsbuildinfo
+
