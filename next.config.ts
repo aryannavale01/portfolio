@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import path from "path";
+import bundleAnalyzer from "@next/bundle-analyzer";
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname),
@@ -13,4 +14,12 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// Perf-audit tooling (Phase 1): only active when ANALYZE=true is set for a build.
+// With ANALYZE unset it returns the config unchanged.
+const withAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+  analyzerMode: "static",
+  openAnalyzer: false,
+});
+
+export default withAnalyzer(nextConfig);
