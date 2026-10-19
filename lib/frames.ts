@@ -20,22 +20,4 @@ export const FRAMES = {
       totalSizeMb: 2.32,
     },
   },
-  journey: {
-    desktop: {
-      base: "/frames/journey/frame_",
-      count: 130,
-      width: 1920,
-      height: 1080,
-      maxSizeKb: 149,
-      totalSizeMb: 5.19,
-    },
-    mobile: {
-      base: "/frames/journey-mobile/frame_",
-      count: 60,
-      width: 1080,
-      height: 1350,
-      maxSizeKb: 41,
-      totalSizeMb: 1.76,
-    },
-  },
 } as const;

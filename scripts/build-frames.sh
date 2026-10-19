@@ -10,16 +10,12 @@ FFMPEG_BIN="${FFMPEG_BIN:-ffmpeg}"
 
 WORK_DIR="work"
 SOURCE_HERO="source/hero.mp4"
-SOURCE_JOURNEY="source/journey.mp4"
 
 OUT_HERO_DESKTOP="public/frames/hero"
 OUT_HERO_MOBILE="public/frames/hero-mobile"
-OUT_JOURNEY_DESKTOP="public/frames/journey"
-OUT_JOURNEY_MOBILE="public/frames/journey-mobile"
 
 mkdir -p "$WORK_DIR/hero_raw" "$WORK_DIR/hero_graded" "$WORK_DIR/hero_mobile"
-mkdir -p "$WORK_DIR/journey_raw" "$WORK_DIR/journey_graded" "$WORK_DIR/journey_mobile"
-mkdir -p "$OUT_HERO_DESKTOP" "$OUT_HERO_MOBILE" "$OUT_JOURNEY_DESKTOP" "$OUT_JOURNEY_MOBILE"
+mkdir -p "$OUT_HERO_DESKTOP" "$OUT_HERO_MOBILE"
 
 # ------------------------------------------------------------------------------
 # 1. Upscaling & Real-ESRGAN Documentation

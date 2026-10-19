@@ -28,16 +28,4 @@ export const expertise = {
       chips: ["Kotlin", "Jetpack Compose", "Android Studio"],
     },
   ],
-  education: [
-    {
-      title: "B.Tech, AI & Data Science",
-      lines: ["VPKBIET Baramati", "Graduating 2027"],
-    },
-  ],
-  experience: [
-    {
-      title: "Software Development Intern",
-      lines: ["MKCL"],
-    },
-  ],
 } as const;

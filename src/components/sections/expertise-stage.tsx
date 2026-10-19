@@ -19,7 +19,7 @@ export function ExpertiseStage() {
         className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#050505] to-transparent pointer-events-none"
         aria-hidden="true"
       />
-      {/* Bottom gradient blend into journey canvas */}
+      {/* Bottom gradient blend into the content background */}
       <div
         className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none"
         aria-hidden="true"

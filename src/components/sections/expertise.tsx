@@ -170,41 +170,6 @@ export function Expertise() {
           </>
         )}
       </Reveal>
-
-      {/* Education & Experience - keep as static grid below carousel */}
-      <Reveal className="mt-16">
-        <PanelBanner>
-          <PanelTitle>Background</PanelTitle>
-          <SplitHeading className="mt-4">{expertise.heading}</SplitHeading>
-        </PanelBanner>
-        <div className="mt-6 grid gap-5 md:grid-cols-2">
-          {(
-            [
-              { label: "Education", entries: expertise.education },
-              { label: "Experience", entries: expertise.experience },
-            ] as const
-          ).map((block) => (
-            <Reveal key={block.label}>
-              <article className="bg-[#0A0A0A] border border-white/10 h-full rounded-3xl p-6 md:p-7">
-                <p className="mono-label text-accent-red">{"// " + block.label}</p>
-                <ul className="mt-4 space-y-4">
-                  {block.entries.map((e) => (
-                    <li key={e.title} className="flex items-start gap-3">
-                      <span aria-hidden="true" className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent-red" />
-                      <div>
-                        <p className="font-bold text-[#F5F5F5] [text-wrap:balance]">{e.title}</p>
-                        {e.lines.map((line) => (
-                          <p key={line} className="mt-0.5 text-sm text-white/55">{line}</p>
-                        ))}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </Reveal>
     </section>
   );
 }

@@ -51,8 +51,13 @@
   --background: #050505;
   --foreground: #f5f5f5;
   --accent-red: #e10600;
-  /* Glass system tokens (Part 4) */
-  --g1-bg: rgba(255, 255, 255, 0.05);
+  /* Glass system tokens — retuned for the static ambient background:
+     one shared fill rgba(14,9,9,0.55) so the red light pools read through
+     every card, shared 1px rgba(255,255,255,0.12) border (soft red hover
+     edge below), inner top highlight kept, radii unchanged.
+     Blur caps: <=16px desktop, <=10px mobile. Text over the fill stays
+     well above 4.5:1 (fill resolves to ~rgb(10,7,7) on the #050505 base). */
+  --g1-bg: rgba(14, 9, 9, 0.55);
   --g1-border: rgba(255, 255, 255, 0.12);
   --g1-blur: 10px;
   --g1-sat: 140%;
@@ -60,17 +65,17 @@
   --g1-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
   --g1-radius: 20px;
 
-  --g2-bg: rgba(12, 6, 6, 0.42);
-  --g2-border: rgba(255, 90, 80, 0.22);
+  --g2-bg: rgba(14, 9, 9, 0.55);
+  --g2-border: rgba(255, 255, 255, 0.12);
   --g2-blur: 16px;
   --g2-sat: 140%;
   --g2-highlight: rgba(255, 255, 255, 0.14);
   --g2-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
   --g2-radius: 28px;
 
-  --g3-bg: rgba(8, 8, 8, 0.50);
-  --g3-border: rgba(255, 255, 255, 0.14);
-  --g3-blur: 20px;
+  --g3-bg: rgba(14, 9, 9, 0.55);
+  --g3-border: rgba(255, 255, 255, 0.12);
+  --g3-blur: 16px;
   --g3-sat: 150%;
   --card: oklch(0.18 0.015 260 / 60%);
   --card-foreground: oklch(0.97 0.005 100);
@@ -101,6 +106,17 @@
   --sidebar-accent-foreground: oklch(0.97 0.005 100);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.7 0.05 260);
+}
+
+/* Mobile glass blur caps — MUST stay unlayered: the token defaults in the
+   :root above are unlayered, and unlayered rules beat @layer rules in the
+   cascade regardless of source order. Caps: <=16px desktop, <=10px mobile. */
+@media (max-width: 767px) {
+  :root {
+    --g1-blur: 7px;
+    --g2-blur: 10px;
+    --g3-blur: 10px;
+  }
 }
 
 @layer base {
@@ -220,15 +236,6 @@
     }
   }
 
-  /* Mobile: cap blur at 10px. */
-  @media (max-width: 767px) {
-    :root {
-      --g1-blur: 7px;
-      --g2-blur: 10px;
-      --g3-blur: 10px;
-    }
-  }
-
   /* Navbar links: legible over the white cap with text-shadow */
   .nav-link {
     color: #ffffff;
@@ -283,13 +290,16 @@
     height: 100svh;
     height: 100dvh;
   }
-  /* Journey sticky stage + load-failure fallback */
-  .journey-stage {
-    height: 100vh;
-    height: 100svh;
+  /* Experience timeline nodes: one slow opacity pulse (single animation). */
+  @keyframes node-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
   }
-  .journey-stage.journey-fallback {
-    background: linear-gradient(160deg, #1a0505, #050505);
+  .timeline-node {
+    animation: node-pulse 3.2s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-node { animation: none; }
   }
   @media (max-width: 767px) {
     #about h2 {

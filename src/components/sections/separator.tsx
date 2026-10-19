@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 
 /**
- * Dark separator section between Hero/About and Journey/Skills.
- * Provides a clean visual break between the two canvas animations.
+ * Dark separator section between Hero/About and the content sections below.
+ * Provides a clean visual break between sections.
  * Height is configurable via className (default 60vh).
  */
 export function SectionSeparator({
@@ -25,7 +25,7 @@ export function SectionSeparator({
         className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#050505] to-transparent pointer-events-none"
         aria-hidden="true"
       />
-      {/* Subtle gradient vignette at bottom edge to blend into journey canvas */}
+      {/* Subtle gradient vignette at bottom edge to blend into the content background */}
       <div
         className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none"
         aria-hidden="true"
